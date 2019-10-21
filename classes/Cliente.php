@@ -7,5 +7,11 @@ class Cliente {
     public function __construct() {
         $this->conexao = Conexao::getConexao();
     }
+    public function listar() {
+        $sql = 'select * from cliente;';
+        $q = $this->conexao->prepare($sql);
+        $q->execute();
+        return $q;
+    }
   
 }

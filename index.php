@@ -1,9 +1,5 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -11,7 +7,30 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        require 'classes/Cliente.php';
+        $cli = new Cliente();
+        $clientes = $cli->listar();
         ?>
+
+        <table>
+            <thead>
+                <tr>
+                    <td>Codigo</td>
+                    <td>Nome</td>
+                    <td>Endereço</td>
+                    <td>Telefone</td>  
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($clientes as $c) { ?>
+                <tr>
+                    <td><?php echo $c ['codCli']; ?> </td>
+                    <td><?php echo $c ['nomCli']; ?> </td>
+                    <td><?php echo $c ['endCli']; ?> </td>
+                    <td><?php echo $c ['telCli']; ?> </td>
+                </tr>
+                    <?php } ?>
+            </tbody>
+        </table>
     </body>
 </html>
