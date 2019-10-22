@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Listar</title>
     </head>
     <body>
         <?php
@@ -11,6 +11,7 @@
         $cli = new Cliente();
         $clientes = $cli->listar();
         ?>
+        <a href="adicionar.php">Novo cliente</a>
 
         <table>
             <thead>
