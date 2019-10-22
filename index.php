@@ -28,7 +28,7 @@
                         <td><?php echo $c ['nomCli']; ?> </td>
                         <td><?php echo $c ['endCli']; ?> </td>
                         <td><?php echo $c ['telCli']; ?> </td>
-                        <td><button type="submit">Editar</button>
+                        <td><a href="editar.php? cod=<?php?>">Editar</a>
                             <button type="submit">Excluir</button></td>
                     </tr>
                 <?php } ?>
