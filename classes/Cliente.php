@@ -25,5 +25,13 @@ class Cliente {
          $q->bindParam(3, $telCli);
          $q->execute();
     }
-
+    public function editar($codCli, $nomCli, $enCli, $telCli) {
+        $sql = 'UPDATE SET nomCli= ?, endCli =?, telCli = ? WHERE (codCli = ?);';
+         $q = $this->conexao->prepare($sql);
+         $q->bindParam(1, $nomCli);
+         $q->bindParam(2, $enCli);
+         $q->bindParam(3, $telCli);
+         $q->bindParam(4, $codCli);
+         $q->execute();
+    }
 }
