@@ -10,16 +10,17 @@
         <?php
         require 'classes/Cliente.php';
         $cod = $_GET['cod'];
-        
+
         $cli = new Cliente();
         $cliente = $cli->listarFiltro($cod);
         ?>
 
         <?php
         if (isset($_POST ['nomCli'])) {
+            header('Location: index.php');
             $cliEdi = new Cliente();
             $cliEdi->editar($_POST ['codCli'], $_POST ['nomCli'], $_POST ['endCli'], $_POST ['telCli']);
-            header('Location: index.php');
+            
         }
         ?>
 
@@ -35,7 +36,7 @@
             <input id="endCli" name="endCli" type="text" maxlength="120" value="<?php echo $cliente ['endCli']; ?>"/> 
             <br/><br/>
             <label for="telCli">Telefone</label>
-            <input id="telCli" name="telCli" type="text" maxlength="15" value=<?php echo $cliente ['telCli']; ?>/>    
+            <input id="telCli" name="telCli" type="text" maxlength="15" value="<?php echo $cliente ['telCli']; ?>"/>    
             <br/><br/>
             <button type="submit">Editar</button>
         </form>
