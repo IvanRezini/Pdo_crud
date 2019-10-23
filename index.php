@@ -10,6 +10,14 @@
         require 'classes/Cliente.php';
         $cli = new Cliente();
         $clientes = $cli->listar();
+     
+        if (isset($_GET['delCli'])) {
+            $cod=$_GET['delCli'];
+            $cliDel = new Cliente();
+            $cliDel->eliminar($cod);
+            header('Location: index.php');
+            unset($delCli);
+        }
         ?>
         <a href="adicionar.php">Novo cliente</a>
         <table>
@@ -28,8 +36,9 @@
                         <td><?php echo $c ['nomCli']; ?> </td>
                         <td><?php echo $c ['endCli']; ?> </td>
                         <td><?php echo $c ['telCli']; ?> </td>
-                        <td><a href="editar.php? cod=<?php?>">Editar</a>
-                            <button type="submit">Excluir</button></td>
+                        <td>
+                            <button><a href="editar.php?cod=<?php echo $c['codCli'] ?>">Editar</a></button>
+                            <button><a href="index.php?delCli=<?php echo $c['codCli'] ?>">Excluir</a></button></td>
                     </tr>
                 <?php } ?>
             </tbody>
