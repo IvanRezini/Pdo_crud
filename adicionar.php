@@ -8,6 +8,7 @@
     <body>
         <?php
         if (isset($_POST ['nomCli'])) {
+             header('Location: index.php');
             require 'classes/Cliente.php';
             $cli = new Cliente();
             $cli->adicionar($_POST ['nomCli'], $_POST ['endCli'], $_POST ['telCli']);
